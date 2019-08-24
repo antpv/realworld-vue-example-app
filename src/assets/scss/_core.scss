@@ -1,6 +1,6 @@
 @import 'reset-css';
 @import './_configurations';
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans|IBM+Plex+Sans:400,400i|IBM+Plex+Serif:400&display=swap&subset=cyrillic,cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|IBM+Plex+Sans:400,400i|IBM+Plex+Serif:400,500&display=swap&subset=cyrillic,cyrillic-ext');
 
 html {
   font-size: 14px;
@@ -12,7 +12,6 @@ body {
   font-size: 1rem;
   color: $text-color-main;
   font-family: $font-family-main;
-  padding: 30px;
 }
 
 h1, h2, h3 {
@@ -21,20 +20,20 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 36px;
-  line-height: 48px;
+  font-size: 54px;
+  line-height: 78px;
   color: $text-color-main;
 }
 
 h2 {
-  font-size: 26px;
-  line-height: 38px;
+  font-size: 36px;
+  line-height: 54px;
   color: $text-color-main;
 }
 
 h3 {
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 24px;
+  line-height: 36px;
   color: $text-color-main;
 }
 

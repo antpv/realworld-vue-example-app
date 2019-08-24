@@ -7,7 +7,8 @@
       button_size_xs: xs,
       button_size_xl: xl,
       button_size_xxl: xxl,
-      button_transparent: transparent
+      button_transparent: transparent,
+      button_clear: clear
     }"
     :disabled="disabled"
   >
@@ -56,6 +57,12 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+
+    clear: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
@@ -69,11 +76,19 @@ export default {
   cursor: pointer;
   outline: 0;
   color: $primary;
-  border: 1px solid $primary;
+  border: 1px solid;
   border-radius: 4px;
+  border-color: $primary;
   background-color: $white;
-  margin: 10px;
   padding: 6px 12px;
+  box-sizing: border-box;
+  transition: color 0.15s cubic-bezier(0, 0.89, 0.44, 1),
+    background-color 0.15s cubic-bezier(0, 0.89, 0.44, 1);
+
+  &:hover {
+    color: $primary-light;
+    border-color: $primary-light;
+  }
 
   &_size_xs {
     padding: 3px 6px;
@@ -88,11 +103,19 @@ export default {
   }
 
   &_display_expanded {
-    display: block;
+    width: 100%;
   }
 
   &_transparent {
     background-color: transparent;
+  }
+
+  &_clear {
+    border-color: transparent;
+
+    &:hover {
+      border-color: transparent;
+    }
   }
 }
 </style>
