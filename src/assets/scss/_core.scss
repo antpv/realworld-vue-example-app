@@ -1,0 +1,43 @@
+@import 'reset-css';
+@import './_configurations';
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|IBM+Plex+Sans:400,400i|IBM+Plex+Serif:400&display=swap&subset=cyrillic,cyrillic-ext');
+
+html {
+  font-size: 14px;
+}
+
+body {
+  line-height: 1.375rem;
+  font-weight: 400;
+  font-size: 1rem;
+  color: $text-color-main;
+  font-family: $font-family-main;
+}
+
+h1, h2, h3 {
+  font-family: $font-family-titles;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 48px;
+  color: $text-color-main;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 38px;
+  color: $text-color-main;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 26px;
+  color: $text-color-main;
+}
+
+p {
+  color: $text-color-secondary;
+  line-height: 1.575rem;
+}
