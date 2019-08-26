@@ -39,7 +39,7 @@ div.stretchy-wrapper > div {
     width: 100%;
     padding-bottom: 56.25%;
     position: relative;
-    background: #f0f0f0;
+    background: $gray;
     font-size: 0;
     line-height: 0;
     margin-bottom: 12px;

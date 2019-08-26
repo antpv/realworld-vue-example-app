@@ -9,6 +9,9 @@
     </Header>
 
     <Categories />
+
+    <RWDivider />
+
     <div style="margin-top: 18px; width: 342px">
       <Article />
     </div>
@@ -28,6 +31,7 @@ export default {
 
   components: {
     RWButton: () => import('@/components/ui/RWButton'),
+    RWDivider: () => import('@/components/ui/RWDivider'),
     Article: () => import('@/components/common/Article'),
     Categories: () => import('@/components/common/Categories'),
     Container: () => import('@/components/layout/Container'),
