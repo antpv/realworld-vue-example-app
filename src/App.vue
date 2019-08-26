@@ -10,7 +10,9 @@
 
     <Categories />
 
-    <RWDivider />
+    <RWDivider>
+      <h3>Must popular</h3>
+    </RWDivider>
 
     <div style="margin-top: 18px; width: 342px">
       <Article />
