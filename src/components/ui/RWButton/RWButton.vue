@@ -10,6 +10,7 @@
       button_transparent: transparent,
       button_clear: clear
     }"
+    :style="buttonStyle"
     :disabled="disabled"
   >
     <span class="button__content">
@@ -23,6 +24,11 @@ export default {
   name: 'RWButton',
 
   props: {
+    color: {
+      type: String,
+      required: false
+    },
+
     disabled: {
       type: Boolean,
       required: false,
@@ -63,6 +69,21 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    }
+  },
+
+  computed: {
+    hasColor() {
+      return this.color !== undefined
+    },
+
+    buttonStyle() {
+      return this.color
+        ? {
+            color: this.color,
+            'border-color': this.color
+          }
+        : null
     }
   }
 }
