@@ -57,7 +57,7 @@ export default {
 
   &__item-wrapper {
     padding: 0;
-    margin-right: 18px;
+    margin-right: 24px;
     display: inline-block;
 
     &:last-child {

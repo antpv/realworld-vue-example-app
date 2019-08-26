@@ -3,11 +3,9 @@
     <Header>
       <Logo slot="logo" />
 
-      <template slot="navigation">
-        <UIButton>
-          Show in Github
-        </UIButton>
-      </template>
+      <RWButton slot="navigation">
+        Show in Github
+      </RWButton>
     </Header>
 
     <Categories />
@@ -26,11 +24,11 @@ export default {
   },
 
   components: {
-    Container: () => import('@/components/layout/Container'),
-    UIButton: () => import('@/components/UI/UIButton'),
+    RWButton: () => import('@/components/ui/RWButton'),
     Article: () => import('@/components/common/Article'),
+    Categories: () => import('@/components/common/Categories'),
+    Container: () => import('@/components/layout/Container'),
     Header: () => import('@/components/layout/Header'),
-    Categories: () => import('@/components/layout/Categories'),
     Logo: () => import('@/components/layout/Logo')
   }
 }

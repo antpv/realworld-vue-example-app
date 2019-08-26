@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'UIButton',
+  name: 'RWButton',
 
   props: {
     disabled: {
