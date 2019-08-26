@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|IBM+Plex+Sans:400,400i|IBM+Plex+Serif:400,500&display=swap&subset=cyrillic,cyrillic-ext');
 
 html {
-  font-size: 13.33px;
+  font-size: 13px;
 }
 
 body {
@@ -38,6 +38,6 @@ h3 {
 }
 
 p {
-  color: $text-color-secondary;
+  color: $text-color-light;
   line-height: 1.575rem;
 }

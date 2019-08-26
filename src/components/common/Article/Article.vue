@@ -1,18 +1,20 @@
 <template>
   <div class="article">
-    <div class="article__image">
-      <img
-        src="https://images.unsplash.com/photo-1559592892-19db4235d786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-        alt=""
-      />
-    </div>
+    <div class="article__image"></div>
     <div class="article__title">
       To increase your security, you must update your password
+    </div>
+    <div class="article__description">
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque tenetur sunt iusto iste
+        repellendus!
+      </p>
     </div>
     <div class="article__meta-wrapper">
       <div class="article__meta-author">
         The New York Times
       </div>
+      <span class="middotDivider"></span>
       <div class="article__meta-date">
         2 hours ago
       </div>
@@ -27,17 +29,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+div.stretchy-wrapper > div {
+}
+
 .article {
   display: block;
 
   &__image {
+    width: 100%;
+    padding-bottom: 56.25%;
+    position: relative;
+    background: #f0f0f0;
     font-size: 0;
     line-height: 0;
     margin-bottom: 12px;
-
-    & img {
-      max-width: 100%;
-    }
   }
 
   &__title {
@@ -48,9 +53,12 @@ export default {
     margin-bottom: 6px;
   }
 
+  &__description {
+    margin-bottom: 6px;
+  }
+
   &__meta-wrapper {
-    font-size: 13px;
-    color: $text-color-secondary;
+    color: $text-color-lighten;
   }
 
   &__meta-author {
@@ -61,7 +69,16 @@ export default {
   &__meta-date {
     cursor: default;
     display: inline-block;
-    margin-left: 12px;
+  }
+}
+
+.middotDivider {
+  padding-right: 6px;
+  padding-left: 6px;
+  font-size: 13px;
+
+  &:after {
+    content: '\00B7';
   }
 }
 </style>

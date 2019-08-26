@@ -12,6 +12,9 @@
     <div style="margin-top: 18px; width: 342px">
       <Article />
     </div>
+    <div style="margin-top: 24px; width: 342px">
+      <Article />
+    </div>
   </Container>
 </template>
 
