@@ -1,8 +1,8 @@
-import BaseService from './BaseService'
+import BaseApiService from './BaseApiService'
 
-export default class NewsService extends BaseService {
-  static async topHeadlines(params) {
-    const response = await this.axios.get('/top-headlines', params)
+export default {
+  async topHeadlines(params) {
+    const response = await BaseApiService.get('/top-headlines', params)
 
     return response
   }
