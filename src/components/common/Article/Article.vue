@@ -1,7 +1,7 @@
 <template>
   <div class="article">
-    <a :href="urlToOriginal" class="article__link-holder">
-      <div v-if="hasImage" class="article__image"></div>
+    <a :href="urlToOriginal" class="article__link-holder" :title="title">
+      <div v-if="hasImage" class="article__image" :style="imageStyle"></div>
       <div class="article__title">
         {{ title }}
       </div>
@@ -62,6 +62,10 @@ export default {
       return !!this.urlToImage
     },
 
+    imageStyle() {
+      return `background-image: url(${this.urlToImage})`
+    },
+
     correctPublishedAt() {
       return this.publishedAt
     }
@@ -89,6 +93,9 @@ export default {
     font-size: 0;
     line-height: 0;
     margin-bottom: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   &__title {
@@ -111,6 +118,10 @@ export default {
   &__source {
     cursor: pointer;
     display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__date {

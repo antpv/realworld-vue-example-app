@@ -10,33 +10,22 @@
     <Categories :categories="categories" />
 
     <BaseDivider>
-      <h3>
-        Other
-      </h3>
+      <BaseTitle title="Other" />
     </BaseDivider>
 
-    <Grid rowGap="36">
-      <Row columnGap="24">
-        <Column v-for="num in [1, 2, 3]" :key="num">
-          <Article
-            urlToOriginal="urlToOriginal"
-            title="title"
-            description="description"
-            sourceName="sourceName"
-            publishedAt="publishedAt"
-            urlToImage="urlToImage"
-          />
-        </Column>
-      </Row>
-    </Grid>
+    <Article
+      urlToOriginal="urlToOriginal"
+      title="title"
+      description="description"
+      sourceName="sourceName"
+      publishedAt="publishedAt"
+      urlToImage="https://images.unsplash.com/photo-1510832198440-a52376950479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1348&q=80"
+    />
   </Container>
 </template>
 
 <script>
 import Container from '@/components/layout/Container'
-import Grid from '@/components/layout/Grid'
-import Row from '@/components/layout/Row'
-import Column from '@/components/layout/Column'
 import TheHeader from '@/components/layout/TheHeader'
 import Logo from '@/components/layout/Logo'
 import categories from '@/components/common/Categories/categories'
@@ -44,6 +33,7 @@ import Categories from '@/components/common/Categories'
 import Article from '@/components/common/Article'
 import BaseDivider from '@/components/base/BaseDivider'
 import BaseButton from '@/components/base/BaseButton'
+import BaseTitle from '@/components/base/BaseTitle'
 
 export default {
   metaInfo() {
@@ -60,15 +50,13 @@ export default {
 
   components: {
     Container,
-    Grid,
-    Row,
-    Column,
     TheHeader,
     Logo,
     Categories,
     Article,
     BaseDivider,
-    BaseButton
+    BaseButton,
+    BaseTitle
   }
 }
 </script>
