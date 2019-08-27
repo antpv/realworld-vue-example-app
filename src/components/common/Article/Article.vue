@@ -78,6 +78,7 @@ export default {
     margin: 0;
     padding: 0;
     color: initial;
+    text-decoration: none;
   }
 
   &__image {

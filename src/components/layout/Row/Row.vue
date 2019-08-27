@@ -18,7 +18,7 @@ export default {
 
   computed: {
     rowStyle() {
-      return `row-column-gap: ${this.rowGap}px`
+      return `grid-column-gap: ${this.columnGap}px`
     }
   }
 }
