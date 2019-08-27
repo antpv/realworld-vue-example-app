@@ -1,38 +1,8 @@
 <template>
   <div class="categories">
-    <div class="categories__item-wrapper">
+    <div class="categories__item-wrapper" v-for="category in categories" :key="category.route">
       <div class="categories__item-link">
-        entertainment
-      </div>
-    </div>
-    <div class="categories__item-wrapper">
-      <div class="categories__item-link">
-        technology
-      </div>
-    </div>
-    <div class="categories__item-wrapper">
-      <div class="categories__item-link">
-        sports
-      </div>
-    </div>
-    <div class="categories__item-wrapper">
-      <div class="categories__item-link">
-        general
-      </div>
-    </div>
-    <div class="categories__item-wrapper">
-      <div class="categories__item-link">
-        health
-      </div>
-    </div>
-    <div class="categories__item-wrapper">
-      <div class="categories__item-link">
-        science
-      </div>
-    </div>
-    <div class="categories__item-wrapper">
-      <div class="categories__item-link">
-        business
+        {{ category.title }}
       </div>
     </div>
   </div>
@@ -42,7 +12,7 @@
 export default {
   name: 'Categories',
   props: {
-    items: {
+    categories: {
       type: Array,
       default: () => []
     }

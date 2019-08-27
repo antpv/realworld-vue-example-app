@@ -1,22 +1,22 @@
 <template>
   <div class="article">
-    <div class="article__image"></div>
-    <div class="article__title">
-      To increase your security, you must update your password
-    </div>
-    <div class="article__description">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque tenetur sunt iusto iste
-        repellendus!
-      </p>
-    </div>
-    <div class="article__meta-wrapper">
-      <div class="article__meta-author">
-        The New York Times
+    <a :href="urlToOriginal" class="article__link-holder">
+      <div v-if="hasImage" class="article__image"></div>
+      <div class="article__title">
+        {{ title }}
+      </div>
+      <div class="article__description">
+        {{ description }}
+      </div>
+    </a>
+
+    <div class="article__meta">
+      <div class="article__source">
+        {{ sourceName }}
       </div>
       <span class="middotDivider"></span>
-      <div class="article__meta-date">
-        2 hours ago
+      <div class="article__date">
+        {{ correctPublishedAt }}
       </div>
     </div>
   </div>
@@ -24,16 +24,61 @@
 
 <script>
 export default {
-  name: 'Article'
+  name: 'Article',
+
+  props: {
+    urlToOriginal: {
+      type: String,
+      required: true
+    },
+
+    title: {
+      type: String,
+      required: true
+    },
+
+    description: {
+      type: String,
+      required: true
+    },
+
+    sourceName: {
+      type: String,
+      required: true
+    },
+
+    publishedAt: {
+      type: String,
+      required: true
+    },
+
+    urlToImage: {
+      required: false
+    }
+  },
+
+  computed: {
+    hasImage() {
+      return !!this.urlToImage
+    },
+
+    correctPublishedAt() {
+      return this.publishedAt
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-div.stretchy-wrapper > div {
-}
-
 .article {
   display: block;
+
+  &__link-holder {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    color: initial;
+  }
 
   &__image {
     width: 100%;
@@ -54,19 +99,20 @@ div.stretchy-wrapper > div {
   }
 
   &__description {
+    color: $text-color-light;
     margin-bottom: 6px;
   }
 
-  &__meta-wrapper {
+  &__meta {
     color: $text-color-lighten;
   }
 
-  &__meta-author {
+  &__source {
     cursor: pointer;
     display: inline-block;
   }
 
-  &__meta-date {
+  &__date {
     cursor: default;
     display: inline-block;
   }
