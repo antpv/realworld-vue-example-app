@@ -1,9 +1,9 @@
 <template>
   <div class="categories">
     <div class="categories__item-wrapper" v-for="category in categories" :key="category.route">
-      <div class="categories__item-link">
+      <router-link :to="category.route" class="categories__item-link">
         {{ category.title }}
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -38,6 +38,13 @@ export default {
   &__item-link {
     cursor: pointer;
     text-transform: uppercase;
+    text-decoration: none;
+    color: $text-color-light;
+    transition: color 0.15s cubic-bezier(0, 0.89, 0.44, 1);
+
+    &:hover {
+      color: $text-color-lighten;
+    }
   }
 }
 </style>
