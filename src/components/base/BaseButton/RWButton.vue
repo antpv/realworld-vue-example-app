@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'RWButton',
+  name: 'BaseButton',
 
   props: {
     color: {

@@ -1,14 +1,20 @@
 <template>
   <div class="logo">
     <div class="logo__text" @mousedown.prevent>
-      rw
+      {{ logoText }}
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Logo'
+  name: 'Logo',
+
+  data() {
+    return {
+      logoText: 'rw'
+    }
+  }
 }
 </script>
 
