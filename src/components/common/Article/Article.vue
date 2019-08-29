@@ -12,7 +12,7 @@
       </div>
       <div class="article__meta">
         <Source :name="sourceName" :id="sourceId" />
-        <span class="middotDivider"></span>
+        <BaseDivider type="middot" />
         <div class="article__time">
           {{ publishedAt }}
         </div>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import BaseDivider from '@/components/base/BaseDivider'
 import Source from '@/components/common/Source'
 
 export default {
@@ -70,7 +71,9 @@ export default {
 
   computed: {
     articleClasses() {
-      return `article_${this.type}`
+      const { type } = this
+
+      return `article_${type}`
     },
 
     hasImage() {
@@ -83,6 +86,7 @@ export default {
   },
 
   components: {
+    BaseDivider,
     Source
   }
 }
@@ -163,16 +167,6 @@ export default {
   &__time {
     cursor: default;
     display: inline-block;
-  }
-}
-
-.middotDivider {
-  padding-right: 6px;
-  padding-left: 6px;
-  font-size: 13px;
-
-  &:after {
-    content: '\00B7';
   }
 }
 </style>
