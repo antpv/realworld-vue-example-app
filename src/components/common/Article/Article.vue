@@ -117,7 +117,7 @@ export default {
     }
 
     #{$root}__image {
-      padding-bottom: 50%;
+      height: 100%;
     }
   }
 
