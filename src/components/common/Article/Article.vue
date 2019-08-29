@@ -11,12 +11,10 @@
         {{ description }}
       </div>
       <div class="article__meta">
-        <div class="article__source">
-          {{ sourceName }}
-        </div>
+        <Source :name="sourceName" :id="sourceId" />
         <span class="middotDivider"></span>
         <div class="article__time">
-          {{ correctPublishedAt }}
+          {{ publishedAt }}
         </div>
       </div>
     </div>
@@ -24,6 +22,8 @@
 </template>
 
 <script>
+import Source from '@/components/common/Source'
+
 export default {
   name: 'Article',
 
@@ -48,6 +48,11 @@ export default {
       required: true
     },
 
+    sourceId: {
+      type: String,
+      required: true
+    },
+
     publishedAt: {
       type: String,
       required: true
@@ -64,21 +69,21 @@ export default {
   },
 
   computed: {
+    articleClasses() {
+      return `article_${this.type}`
+    },
+
     hasImage() {
       return !!this.urlToImage
     },
 
     imageStyle() {
       return `background-image: url(${this.urlToImage})`
-    },
-
-    articleClasses() {
-      return `article_${this.type}`
-    },
-
-    correctPublishedAt() {
-      return this.publishedAt
     }
+  },
+
+  components: {
+    Source
   }
 }
 </script>
@@ -153,15 +158,6 @@ export default {
 
   &__meta {
     color: $text-color-lighten;
-  }
-
-  &__source {
-    cursor: pointer;
-    display: inline-block;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   &__time {

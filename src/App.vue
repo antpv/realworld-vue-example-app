@@ -19,6 +19,7 @@
       title="Vero repudiandae fugiat dolore"
       description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima sapiente adipisci veritatis explicabo! Dolorum nam illum!"
       sourceName="sourceName"
+      sourceId="sourceId"
       publishedAt="publishedAt"
       type="list"
       urlToImage="https://images.unsplash.com/photo-1510832198440-a52376950479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1348&q=80"
