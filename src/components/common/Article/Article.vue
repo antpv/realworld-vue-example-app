@@ -1,50 +1,23 @@
 <template>
-  <div>
-    <!-- DEFAULT -->
-    <div v-if="isDefaultType" class="article-default">
-      <a :href="urlToOriginal" class="article-default__link-holder" :title="title">
-        <div v-if="hasImage" class="article-default__image" :style="imageStyle"></div>
-        <div class="article-default__title">
-          {{ title }}
-        </div>
-        <div class="article-default__description">
-          {{ description }}
-        </div>
-      </a>
-
-      <div class="article-default__meta">
-        <div class="article-default__source">
+  <div class="article" :class="articleClasses">
+    <div class="article__image-wrapper">
+      <div v-if="hasImage" class="article__image" :style="imageStyle"></div>
+    </div>
+    <div class="article__content-wrapper">
+      <div class="article__title">
+        {{ title }}
+      </div>
+      <div class="article__description">
+        {{ description }}
+      </div>
+      <div class="article__meta">
+        <div class="article__source">
           {{ sourceName }}
         </div>
         <span class="middotDivider"></span>
-        <div class="article-default__date">
+        <div class="article__time">
           {{ correctPublishedAt }}
         </div>
-      </div>
-    </div>
-
-    <!-- LIST -->
-    <div v-if="isListType" class="article-list">
-      <div class="article-list__content">
-        <div class="article-list__title">
-          {{ title }}
-        </div>
-        <div class="article-list__description">
-          {{ description }}
-        </div>
-
-        <div class="article-list__meta">
-          <div class="article-list__source">
-            {{ sourceName }}
-          </div>
-          <span class="middotDivider"></span>
-          <div class="article-list__date">
-            {{ correctPublishedAt }}
-          </div>
-        </div>
-      </div>
-      <div class="article-list__image-wrapper">
-        <div v-if="hasImage" class="article-list__image" :style="imageStyle"></div>
       </div>
     </div>
   </div>
@@ -99,147 +72,101 @@ export default {
       return `background-image: url(${this.urlToImage})`
     },
 
+    articleClasses() {
+      return `article_${this.type}`
+    },
+
     correctPublishedAt() {
       return this.publishedAt
-    },
-
-    isDefaultType() {
-      return this.type === 'default'
-    },
-
-    isListType() {
-      return this.type === 'list'
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.article-default {
-  display: block;
+.article {
+  $root: &;
+  display: flex;
+  justify-content: space-between;
 
-  &__link-holder {
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    color: initial;
-    text-decoration: none;
-  }
+  &_default {
+    flex-direction: column;
 
-  &__image {
-    width: 100%;
-    padding-bottom: 56.25%;
-    position: relative;
-    background: $gray;
-    font-size: 0;
-    line-height: 0;
-    margin-bottom: 12px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    #{$root}__image-wrapper {
+      margin-bottom: 12px;
+    }
 
-    // &--coube {
-    //   padding-bottom: 56.25%;
-    // }
+    #{$root}__content-wrapper {
+    }
 
-    // &--third {
-    //   padding-bottom: 33.33%;
-    // }
-  }
-
-  &__title {
-    font-family: $font-family-titles;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 6px;
-  }
-
-  &__description {
-    color: $text-color-light;
-    margin-bottom: 6px;
-  }
-
-  &__meta {
-    color: $text-color-lighten;
-  }
-
-  &__source {
-    cursor: pointer;
-    display: inline-block;
-
-    &:hover {
-      text-decoration: underline;
+    #{$root}__image {
+      padding-bottom: 56.25%;
     }
   }
 
-  &__date {
-    cursor: default;
-    display: inline-block;
-  }
-}
+  &_list {
+    flex-direction: row-reverse;
 
-.article-list {
-  display: grid;
-  grid-template-columns: auto calc(33.33% - 6px);
-  grid-column-gap: 12px;
-
-  &__content {
-  }
-
-  &__title {
-    font-family: $font-family-titles;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 6px;
-  }
-
-  &__description {
-    color: $text-color-light;
-    margin-bottom: 6px;
-  }
-
-  &__meta {
-    color: $text-color-lighten;
-  }
-
-  &__source {
-    cursor: pointer;
-    display: inline-block;
-
-    &:hover {
-      text-decoration: underline;
+    #{$root}__image-wrapper {
+      width: 25%;
     }
-  }
 
-  &__date {
-    cursor: default;
-    display: inline-block;
+    #{$root}__content-wrapper {
+      width: calc(80% - 12px);
+      margin-right: 12px;
+    }
+
+    #{$root}__image {
+      padding-bottom: 50%;
+    }
   }
 
   &__image-wrapper {
   }
 
+  &__content-wrapper {
+  }
+
   &__image {
     width: 100%;
-    padding-bottom: 50%;
     position: relative;
     background: $gray;
     font-size: 0;
     line-height: 0;
-    margin-bottom: 12px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
 
-    // &--coube {
-    //   padding-bottom: 56.25%;
-    // }
+  &__title {
+    font-family: $font-family-titles;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 6px;
+  }
 
-    // &--third {
-    //   padding-bottom: 33.33%;
-    // }
+  &__description {
+    color: $text-color-light;
+    margin-bottom: 6px;
+  }
+
+  &__meta {
+    color: $text-color-lighten;
+  }
+
+  &__source {
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__time {
+    cursor: default;
+    display: inline-block;
   }
 }
 
