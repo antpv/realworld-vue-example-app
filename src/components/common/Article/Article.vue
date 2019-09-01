@@ -40,8 +40,8 @@ export default {
     },
 
     description: {
-      type: String,
-      required: true
+      default: '',
+      required: false
     },
 
     sourceName: {
@@ -120,8 +120,8 @@ export default {
     }
 
     #{$root}__content-wrapper {
-      width: calc(80% - 12px);
-      margin-right: 12px;
+      width: calc(80% - 18px);
+      margin-right: 18px;
     }
 
     #{$root}__image {

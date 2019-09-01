@@ -1,30 +1,37 @@
 export default [
   {
     title: 'General',
-    route: '/category/general'
+    route: '/category/general',
+    slug: 'general'
   },
   {
     title: 'Business',
-    route: '/category/business'
+    route: '/category/business',
+    slug: 'business'
   },
   {
     title: 'Technology',
-    route: '/category/technology'
+    route: '/category/technology',
+    slug: 'technology'
   },
   {
     title: 'Entertainment',
-    route: '/category/entertainment'
+    route: '/category/entertainment',
+    slug: 'entertainment'
   },
   {
     title: 'Health',
-    route: '/category/health'
+    route: '/category/health',
+    slug: 'health'
   },
   {
     title: 'Science',
-    route: '/category/science'
+    route: '/category/science',
+    slug: 'science'
   },
   {
     title: 'Sports',
-    route: '/category/sports'
+    route: '/category/sports',
+    slug: 'sports'
   }
 ]
