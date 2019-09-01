@@ -2,38 +2,30 @@
   <Container>
     <TheHeader>
       <Logo slot="logo" />
-      <BaseButton slot="navigation">
-        Show in Github
+      <BaseButton @click="test" slot="navigation">
+        GET_TOP_HEADLINES
       </BaseButton>
     </TheHeader>
 
     <Categories :categories="categories" />
 
     <BaseDivider>
-      <BaseTitle title="Other" />
+      <BaseTitle title="Top headlines" />
     </BaseDivider>
 
-    <Article
-      style="width: 70%;"
-      urlToOriginal="urlToOriginal"
-      title="Vero repudiandae fugiat dolore"
-      description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima sapiente adipisci veritatis explicabo! Dolorum nam illum!"
-      sourceName="sourceName"
-      sourceId="sourceId"
-      publishedAt="publishedAt"
-      type="list"
-      urlToImage="https://images.unsplash.com/photo-1510832198440-a52376950479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1348&q=80"
-    />
+    <ArticleList :articles="articles" />
   </Container>
 </template>
 
 <script>
+import { GET_TOP_HEADLINES } from '@/store/actionTypes'
+import { mapActions, mapState } from 'vuex'
 import Container from '@/components/layout/Container'
 import TheHeader from '@/components/layout/TheHeader'
 import Logo from '@/components/layout/Logo'
-import categories from '@/components/common/Categories/categories'
+import categories from '@/components/common/Categories/categories.js'
 import Categories from '@/components/common/Categories'
-import Article from '@/components/common/Article'
+import ArticleList from '@/components/common/ArticleList'
 import BaseDivider from '@/components/base/BaseDivider'
 import BaseButton from '@/components/base/BaseButton'
 import BaseTitle from '@/components/base/BaseTitle'
@@ -43,6 +35,12 @@ export default {
     return {
       title: this.$t('app.title')
     }
+  },
+
+  computed: {
+    ...mapState('topHeadlines', {
+      articles: state => state.articles
+    })
   },
 
   data() {
@@ -56,10 +54,18 @@ export default {
     TheHeader,
     Logo,
     Categories,
-    Article,
+    ArticleList,
     BaseDivider,
     BaseButton,
     BaseTitle
+  },
+
+  methods: {
+    ...mapActions('topHeadlines', [GET_TOP_HEADLINES]),
+
+    test() {
+      this[GET_TOP_HEADLINES]()
+    }
   }
 }
 </script>

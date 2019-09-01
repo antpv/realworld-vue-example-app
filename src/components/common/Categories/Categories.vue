@@ -11,6 +11,7 @@
 <script>
 export default {
   name: 'Categories',
+
   props: {
     categories: {
       type: Array,

@@ -50,8 +50,7 @@ export default {
     },
 
     sourceId: {
-      type: String,
-      required: true
+      default: null
     },
 
     publishedAt: {

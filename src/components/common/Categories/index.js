@@ -1,3 +1,3 @@
-import Categories from './Categories'
+import Categories from './Categories.vue'
 
 export default Categories
