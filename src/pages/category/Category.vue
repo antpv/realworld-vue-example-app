@@ -4,7 +4,7 @@
       <h1>{{ categoryTitle }}</h1>
     </BaseDivider>
 
-    <ArticleList style="width: 70%;" :articles="articles" />
+    <ArticleList style="width: 70%;" articleType="list" :articles="articles" />
   </Container>
 </template>
 

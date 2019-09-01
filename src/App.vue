@@ -2,12 +2,10 @@
   <div id="app">
     <Container>
       <TheHeader>
-        <Logo slot="logo" />
+        <Logo slot="logo" isLink />
       </TheHeader>
-
       <Categories :categories="categories" />
     </Container>
-
     <router-view />
   </div>
 </template>

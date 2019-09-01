@@ -1,10 +1,5 @@
 export default [
   {
-    title: 'General',
-    route: '/category/general',
-    slug: 'general'
-  },
-  {
     title: 'Business',
     route: '/category/business',
     slug: 'business'
