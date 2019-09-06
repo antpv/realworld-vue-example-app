@@ -37,6 +37,7 @@ export default {
   align-items: center;
   justify-content: center;
 
-  &__content {}
+  &__content {
+  }
 }
 </style>
