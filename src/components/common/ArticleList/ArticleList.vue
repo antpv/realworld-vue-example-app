@@ -33,6 +33,12 @@ export default {
 
     articleType: {
       default: 'default'
+    },
+
+    // Todo
+    fetching: {
+      type: Boolean,
+      default: false
     }
   },
 
