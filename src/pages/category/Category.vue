@@ -4,7 +4,7 @@
       <h1>{{ categoryTitle }}</h1>
     </BaseDivider>
 
-    <ArticleList style="width: 70%;" articleType="list" :articles="articles" />
+    <ArticleList style="width: 70%;" articleType="list" :articles="articles" :fetching="fetching" />
   </Container>
 </template>
 
@@ -47,7 +47,7 @@ export default {
     },
 
     categoryTitle() {
-      const { categorySlug, categories } = this
+      const { categorySlug } = this
       const category = categories.find(obj => obj.slug === categorySlug)
 
       return category.title
@@ -56,17 +56,21 @@ export default {
 
   data() {
     return {
-      categories
+      fetching: false
     }
   },
 
   methods: {
     ...mapActions('topHeadlines', [GET_TOP_HEADLINES]),
 
-    fetchArticles() {
+    async fetchArticles() {
       const { categorySlug } = this
 
-      this[GET_TOP_HEADLINES]({ category: categorySlug })
+      this.fetching = true
+
+      await this[GET_TOP_HEADLINES]({ category: categorySlug })
+
+      this.fetching = false
     }
   },
 
