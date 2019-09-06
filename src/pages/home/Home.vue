@@ -7,6 +7,8 @@
     </BaseDivider>
 
     <ArticleList :articles="articles" />
+
+    <TheLoader :isShow="fething" />
   </Container>
 </template>
 
@@ -14,6 +16,7 @@
 import { GET_TOP_HEADLINES } from '@/store/actionTypes'
 import { mapActions, mapState } from 'vuex'
 import Container from '@/components/layout/Container'
+import TheLoader from '@/components/layout/TheLoader'
 import ArticleList from '@/components/common/ArticleList'
 import BaseDivider from '@/components/base/BaseDivider'
 
@@ -26,8 +29,12 @@ export default {
     }
   },
 
-  created() {
-    this[GET_TOP_HEADLINES]()
+  async created() {
+    this.fething = true
+
+    await this[GET_TOP_HEADLINES]()
+
+    this.fething = false
   },
 
   computed: {
@@ -36,12 +43,19 @@ export default {
     })
   },
 
+  data() {
+    return {
+      fething: false
+    }
+  },
+
   methods: {
     ...mapActions('topHeadlines', [GET_TOP_HEADLINES])
   },
 
   components: {
     Container,
+    TheLoader,
     ArticleList,
     BaseDivider
   }
