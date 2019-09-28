@@ -1,26 +1,35 @@
 <template>
   <div :class="articleClasses">
-    <div
-      v-for="article in articles"
-      :key="`${article.url}-${article.publishedAt}`"
-      class="article-list__item"
-    >
-      <Article
-        :urlToOriginal="article.url"
-        :title="article.title"
-        :description="article.description"
-        :sourceName="article.source.name"
-        :sourceId="article.source.id"
-        :publishedAt="article.publishedAt"
-        :urlToImage="article.urlToImage"
-        :type="articleType"
-      />
-    </div>
+    <template v-if="fetching">
+      <div v-for="n in 3" :key="n" class="article-list__item">
+        <Skeleton :type="articleType" />
+      </div>
+    </template>
+
+    <template v-else>
+      <div
+        v-for="article in articles"
+        :key="`${article.url}-${article.publishedAt}`"
+        class="article-list__item"
+      >
+        <Article
+          :urlToOriginal="article.url"
+          :title="article.title"
+          :description="article.description"
+          :sourceName="article.source.name"
+          :sourceId="article.source.id"
+          :publishedAt="article.publishedAt"
+          :urlToImage="article.urlToImage"
+          :type="articleType"
+        />
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 import Article from '@/components/common/Article'
+import Skeleton from '@/components/common/Skeleton'
 
 export default {
   name: 'ArticleList',
@@ -35,7 +44,6 @@ export default {
       default: 'default'
     },
 
-    // Todo
     fetching: {
       type: Boolean,
       default: false
@@ -52,7 +60,8 @@ export default {
   },
 
   components: {
-    Article
+    Article,
+    Skeleton
   }
 }
 </script>
