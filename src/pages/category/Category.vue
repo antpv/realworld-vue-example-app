@@ -12,10 +12,10 @@
 import { GET_TOP_HEADLINES } from '@/store/actionTypes'
 import { mapActions, mapState } from 'vuex'
 import Container from '@/components/layout/Container'
-import categories from '@/components/common/Categories/categories.js'
 import ArticleList from '@/components/common/ArticleList'
 import BaseDivider from '@/components/base/BaseDivider'
 import routerProxy from './routerProxy'
+import categories from '@/constants/categories'
 
 export default {
   name: 'Category',

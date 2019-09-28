@@ -15,7 +15,7 @@ import Container from '@/components/layout/Container'
 import TheHeader from '@/components/layout/TheHeader'
 import Logo from '@/components/layout/Logo'
 import Categories from '@/components/common/Categories'
-import categories from '@/components/common/Categories/categories.js'
+import categories from '@/constants/categories'
 
 export default {
   name: 'App',
