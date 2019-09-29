@@ -5,8 +5,8 @@ import topHeadlines from '@/store/modules/topHeadlines'
 Vue.use(Vuex)
 
 const state = () => ({
-  appLocale: 'ru',
-  articleLocale: 'ru'
+  appLanguage: 'ru',
+  contentLanguage: 'ru'
 })
 
 export default new Vuex.Store({
