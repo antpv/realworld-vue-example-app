@@ -5,7 +5,9 @@
     </div>
     <div class="article__content-wrapper">
       <div class="article__title">
-        {{ title }}
+        <a class="article__title-link" :href="urlToOriginal" target="_blank">
+          {{ title }}
+        </a>
       </div>
       <div class="article__description">
         {{ description }}
@@ -152,6 +154,16 @@ export default {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 6px;
+  }
+
+  &__title-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: $text-color-light;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__description {
