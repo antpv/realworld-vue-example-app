@@ -14,7 +14,7 @@ import { mapActions, mapState } from 'vuex'
 import Container from '@/components/layout/Container'
 import ArticleList from '@/components/common/ArticleList'
 import BaseDivider from '@/components/base/BaseDivider'
-import routerProxy from './routerProxy'
+import routerWatcher from './routerWatcher'
 import categories from '@/constants/categories'
 
 export default {
@@ -26,9 +26,9 @@ export default {
     }
   },
 
-  beforeRouteEnter: routerProxy(categories),
+  beforeRouteEnter: routerWatcher(categories),
 
-  beforeRouteUpdate: routerProxy(categories),
+  beforeRouteUpdate: routerWatcher(categories),
 
   watch: {
     $route: {
