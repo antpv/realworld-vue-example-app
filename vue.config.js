@@ -1,6 +1,8 @@
 const path = require('path')
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/realworld-vue-example-app/' : '/',
+
   pluginOptions: {
     i18n: {
       locale: 'ru',
