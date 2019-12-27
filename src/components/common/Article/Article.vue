@@ -1,7 +1,12 @@
 <template>
   <div class="article" :class="articleClasses">
     <div class="article__image-wrapper">
-      <div v-if="hasImage" class="article__image" :data-url="urlToImage" v-background-image-lazyload></div>
+      <div
+        v-if="hasImage"
+        class="article__image"
+        :data-url="urlToImage"
+        v-background-image-lazyload
+      />
     </div>
     <div class="article__content-wrapper">
       <div class="article__title">

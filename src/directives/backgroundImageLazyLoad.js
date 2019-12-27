@@ -1,15 +1,7 @@
 export default {
   inserted: el => {
     function loadImage() {
-      const imageElement = Array.from(el.children).find(el => el.dataset.url)
-
-      if (imageElement) {
-        imageElement.addEventListener('load', () => {
-          setTimeout(() => el.classList.add('loaded'), 100)
-        })
-        imageElement.addEventListener('error', () => {})
-        imageElement.style += `background-image: url(${imageElement.dataset.url})`
-      }
+      el.style = `background-image: url(${el.dataset.url})`
     }
 
     function handleIntersect(entries, observer) {
@@ -30,6 +22,7 @@ export default {
 
       observer.observe(el)
     }
+
     if (window['IntersectionObserver']) {
       createObserver()
     } else {
