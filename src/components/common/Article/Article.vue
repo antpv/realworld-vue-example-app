@@ -1,6 +1,11 @@
 <template>
   <div class="article" :class="articleClasses">
-    <div class="article__image-wrapper">
+    <div
+      class="article__image-wrapper"
+      :class="{
+        'article__image-wrapper_no-image': !hasImage
+      }"
+    >
       <div
         v-if="hasImage"
         class="article__image"
@@ -133,6 +138,9 @@ export default {
   }
 
   &__image-wrapper {
+    &_no-image {
+      margin: 0 !important;
+    }
   }
 
   &__content-wrapper {
