@@ -4,7 +4,19 @@
       <h1>{{ categoryTitle }}</h1>
     </BaseDivider>
 
-    <ArticleList style="width: 70%;" articleType="list" :articles="articles" :fetching="fetching" />
+    <div class="caterory-grid">
+      <div class="caterory-grid__left">
+        <ArticleList articleType="list" :articles="articles" :fetching="fetching" />
+      </div>
+
+      <div class="caterory-grid__right">
+        <SubscribeCategory
+          class="caterory-grid__sticky"
+          :categoryTitle="categoryTitle"
+          :slug="categorySlug"
+        />
+      </div>
+    </div>
   </Container>
 </template>
 
@@ -13,6 +25,7 @@ import { GET_TOP_HEADLINES } from '@/store/actionTypes'
 import { mapActions, mapState } from 'vuex'
 import Container from '@/components/layout/Container'
 import ArticleList from '@/components/common/ArticleList'
+import SubscribeCategory from '@/components/common/SubscribeCategory'
 import BaseDivider from '@/components/base/BaseDivider'
 import routerWatcher from './routerWatcher'
 import categories from '@/constants/categories'
@@ -48,7 +61,7 @@ export default {
 
     categoryTitle() {
       const { categorySlug } = this
-      const category = categories.find(obj => obj.slug === categorySlug)
+      const category = this.categories.find(obj => obj.slug === categorySlug)
 
       return category.title
     }
@@ -56,7 +69,8 @@ export default {
 
   data() {
     return {
-      fetching: false
+      fetching: false,
+      categories
     }
   },
 
@@ -77,9 +91,27 @@ export default {
   components: {
     Container,
     ArticleList,
+    SubscribeCategory,
     BaseDivider
   }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.caterory-grid {
+  display: grid;
+  grid-template-columns: calc(70% - 12px) calc(30% - 12px);
+  grid-column-gap: 24px;
+
+  &__left {
+  }
+
+  &__right {
+  }
+
+  &__sticky {
+    position: sticky;
+    top: 24px;
+  }
+}
+</style>
