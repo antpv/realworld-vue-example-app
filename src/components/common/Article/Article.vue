@@ -28,12 +28,21 @@
         <div class="article__time">
           {{ publishedAt }}
         </div>
+        <div
+          v-if="!hideBookmarkButton"
+          style="background: red; display: inline-block;"
+          @click="addBookmark"
+        >
+          add
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ADD_BOOKMARK } from '@/store/mutationTypes'
+import { mapMutations } from 'vuex'
 import BaseDivider from '@/components/base/BaseDivider'
 import Source from '@/components/common/Source'
 
@@ -77,7 +86,13 @@ export default {
     type: {
       type: String,
       default: 'default'
-    }
+    },
+
+    hideBookmarkButton: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
 
   computed: {
@@ -89,6 +104,30 @@ export default {
 
     hasImage() {
       return !!this.urlToImage
+    }
+  },
+
+  methods: {
+    ...mapMutations('bookmarks', [ADD_BOOKMARK]),
+
+    addBookmark() {
+      const {
+        publishedAt,
+        sourceId,
+        sourceName,
+        description,
+        title,
+        urlToOriginal
+      } = this
+
+      this[ADD_BOOKMARK]({
+        publishedAt,
+        sourceId,
+        sourceName,
+        description,
+        title,
+        urlToOriginal
+      })
     }
   },
 

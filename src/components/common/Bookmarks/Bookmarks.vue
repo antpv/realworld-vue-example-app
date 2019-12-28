@@ -7,25 +7,61 @@
     </div>
 
     <div class="bookmarks__content">
-      <!-- You have no bookmarks -->
+      <template v-if="!hasBookmarks">
+        You have no bookmarks
+      </template>
 
-      <Article
-        :urlToOriginal="'sadsa'"
-        :title="'Как проходят тренировки на чемпионате...'"
-        :description="'Несмотря на минус 28 градусов, в Красноярске на главном предновогоднем...'"
-        :sourceName="'Sport.ru'"
-        :sourceId="'sadsa'"
-        :publishedAt="'2 hours ago'"
-      />
+      <template v-else>
+        <div
+          class="bookmarks__content_item"
+          v-for="bookmark in slicedBookmarks"
+          :key="`${bookmark.urlToOriginal}-${bookmark.publishedAt}`"
+        >
+          <Article
+            :urlToOriginal="bookmark.urlToOriginal"
+            :title="bookmark.title"
+            :description="bookmark.description"
+            :sourceName="bookmark.sourceName"
+            :sourceId="bookmark.sourceId"
+            :publishedAt="bookmark.publishedAt"
+            hideBookmarkButton
+          />
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Article from '@/components/common/Article'
 
 export default {
   name: 'Bookmarks',
+
+  data() {
+    return {
+      bookmarksCount: 2
+    }
+  },
+
+  computed: {
+    ...mapState('bookmarks', {
+      bookmarks: state => state.bookmarks
+    }),
+
+    slicedBookmarks() {
+      return this.bookmarks.slice(0, this.bookmarksCount)
+    },
+
+    hasOffsetBookmarks() {
+      return this.bookmarks.length > this.bookmarksCount
+    },
+
+    hasBookmarks() {
+      return Boolean(this.bookmarks.length)
+    }
+  },
 
   components: {
     Article
@@ -43,6 +79,14 @@ export default {
   &__content {
     background-color: $light-gray;
     padding: 12px;
+
+    &_item {
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 </style>
