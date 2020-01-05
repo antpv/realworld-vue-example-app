@@ -27,6 +27,12 @@
             hideBookmarkButton
           />
         </div>
+
+        <div v-if="hasBookmarksOffset" class="bookmarks__content_navigation">
+          <BaseButton transparent clear expanded>
+            Все закладки – {{ bookmarks.length }}
+          </BaseButton>
+        </div>
       </template>
     </div>
   </div>
@@ -35,6 +41,7 @@
 <script>
 import { mapState } from 'vuex'
 import Article from '@/components/common/Article'
+import BaseButton from '@/components/base/BaseButton'
 
 export default {
   name: 'Bookmarks',
@@ -54,17 +61,18 @@ export default {
       return this.bookmarks.slice(0, this.bookmarksCount)
     },
 
-    hasOffsetBookmarks() {
+    hasBookmarksOffset() {
       return this.bookmarks.length > this.bookmarksCount
     },
 
     hasBookmarks() {
-      return Boolean(this.bookmarks.length)
+      return this.bookmarks.length > 0
     }
   },
 
   components: {
-    Article
+    Article,
+    BaseButton
   }
 }
 </script>
@@ -86,6 +94,10 @@ export default {
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    &_navigation {
+      margin-top: 24px;
     }
   }
 }

@@ -28,13 +28,6 @@
         <div class="article__time">
           {{ publishedAt }}
         </div>
-        <div
-          v-if="!hideBookmarkButton"
-          style="background: red; display: inline-block;"
-          @click="addBookmark"
-        >
-          add
-        </div>
       </div>
     </div>
   </div>
@@ -92,7 +85,7 @@ export default {
       type: Boolean,
       required: false,
       default: false
-    },
+    }
   },
 
   computed: {
@@ -111,6 +104,7 @@ export default {
     ...mapMutations('bookmarks', [ADD_BOOKMARK]),
 
     addBookmark() {
+      // todo: relese feature
       const {
         publishedAt,
         sourceId,
