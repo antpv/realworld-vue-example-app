@@ -10,11 +10,15 @@
       </div>
 
       <div class="caterory-grid__right">
-        <SubscribeCategory
-          class="caterory-grid__sticky"
-          :categoryTitle="categoryTitle"
-          :slug="categorySlug"
-        />
+        <div class="caterory-grid__sticky">
+          <Bookmarks class="caterory-grid__sticky_item" />
+
+          <SubscribeCategory
+            class="caterory-grid__sticky_item"
+            :categoryTitle="categoryTitle"
+            :slug="categorySlug"
+          />
+        </div>
       </div>
     </div>
   </Container>
@@ -25,6 +29,7 @@ import { GET_TOP_HEADLINES } from '@/store/actionTypes'
 import { mapActions, mapState } from 'vuex'
 import Container from '@/components/layout/Container'
 import ArticleList from '@/components/common/ArticleList'
+import Bookmarks from '@/components/common/Bookmarks'
 import SubscribeCategory from '@/components/common/SubscribeCategory'
 import BaseDivider from '@/components/base/BaseDivider'
 import routerWatcher from './routerWatcher'
@@ -91,6 +96,7 @@ export default {
   components: {
     Container,
     ArticleList,
+    Bookmarks,
     SubscribeCategory,
     BaseDivider
   }
@@ -112,6 +118,14 @@ export default {
   &__sticky {
     position: sticky;
     top: 24px;
+
+    &_item {
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 </style>

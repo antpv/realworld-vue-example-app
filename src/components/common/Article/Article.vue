@@ -1,6 +1,11 @@
 <template>
   <div class="article" :class="articleClasses">
-    <div class="article__image-wrapper">
+    <div
+      class="article__image-wrapper"
+      :class="{
+        'article__image-wrapper_no-image': !hasImage
+      }"
+    >
       <div
         v-if="hasImage"
         class="article__image"
@@ -29,6 +34,8 @@
 </template>
 
 <script>
+import { ADD_BOOKMARK } from '@/store/mutationTypes'
+import { mapMutations } from 'vuex'
 import BaseDivider from '@/components/base/BaseDivider'
 import Source from '@/components/common/Source'
 
@@ -72,6 +79,12 @@ export default {
     type: {
       type: String,
       default: 'default'
+    },
+
+    hideBookmarkButton: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
 
@@ -84,6 +97,31 @@ export default {
 
     hasImage() {
       return !!this.urlToImage
+    }
+  },
+
+  methods: {
+    ...mapMutations('bookmarks', [ADD_BOOKMARK]),
+
+    addBookmark() {
+      // todo: relese feature
+      const {
+        publishedAt,
+        sourceId,
+        sourceName,
+        description,
+        title,
+        urlToOriginal
+      } = this
+
+      this[ADD_BOOKMARK]({
+        publishedAt,
+        sourceId,
+        sourceName,
+        description,
+        title,
+        urlToOriginal
+      })
     }
   },
 
@@ -133,6 +171,9 @@ export default {
   }
 
   &__image-wrapper {
+    &_no-image {
+      margin: 0 !important;
+    }
   }
 
   &__content-wrapper {
