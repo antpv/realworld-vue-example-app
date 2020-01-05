@@ -70,6 +70,8 @@ export default {
     border-top: 1px solid;
     border-top-color: transparent;
     padding: 6px 0;
+    border-radius: 0;
+    -webkit-appearance: none;
 
     &_size_xs {
       padding: 3px 0;
