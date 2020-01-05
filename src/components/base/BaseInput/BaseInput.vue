@@ -6,11 +6,11 @@
         'input-wrapper__input_size_xs': xs,
         'input-wrapper__input_size_xl': xl,
         'input-wrapper__input_size_xxl': xxl,
-        'input-wrapper__input_display_expanded': expanded
+        'input-wrapper__input_expanded': expanded
       }"
       type="text"
       :value="value"
-      :placeholder="placeholder ? placeholder : ''"
+      :placeholder="placeholder"
       v-on="$listeners"
     />
   </div>
@@ -26,7 +26,8 @@ export default {
     },
 
     placeholder: {
-      type: String
+      type: String,
+      default: ''
     },
 
     xs: {
@@ -85,7 +86,7 @@ export default {
       padding: 18px 0;
     }
 
-    &_display_expanded {
+    &_expanded {
       width: 100%;
     }
   }
