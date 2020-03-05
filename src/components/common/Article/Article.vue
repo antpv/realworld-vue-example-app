@@ -105,14 +105,7 @@ export default {
 
     addBookmark() {
       // todo: relese feature
-      const {
-        publishedAt,
-        sourceId,
-        sourceName,
-        description,
-        title,
-        urlToOriginal
-      } = this
+      const { publishedAt, sourceId, sourceName, description, title, urlToOriginal } = this
 
       this[ADD_BOOKMARK]({
         publishedAt,
