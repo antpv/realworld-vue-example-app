@@ -28,6 +28,11 @@
         <div class="article__time">
           {{ publishedAt }}
         </div>
+        <div v-if="!hideBookmarkButton" class="article__bookmark">
+          <BaseButton @click="addBookmark" xs clear transparent>
+            <BaseIcon type="Bookmark" />
+          </BaseButton>
+        </div>
       </div>
     </div>
   </div>
@@ -37,6 +42,8 @@
 import { ADD_BOOKMARK } from '@/store/mutationTypes'
 import { mapMutations } from 'vuex'
 import BaseDivider from '@/components/base/BaseDivider'
+import BaseButton from '@/components/base/BaseButton'
+import BaseIcon from '@/components/base/BaseIcon'
 import Source from '@/components/common/Source'
 
 export default {
@@ -104,7 +111,6 @@ export default {
     ...mapMutations('bookmarks', [ADD_BOOKMARK]),
 
     addBookmark() {
-      // todo: relese feature
       const { publishedAt, sourceId, sourceName, description, title, urlToOriginal } = this
 
       this[ADD_BOOKMARK]({
@@ -120,6 +126,8 @@ export default {
 
   components: {
     BaseDivider,
+    BaseIcon,
+    BaseButton,
     Source
   }
 }
@@ -208,6 +216,12 @@ export default {
 
   &__meta {
     color: $text-color-lighten;
+    display: flex;
+    align-items: center;
+  }
+
+  &__bookmark {
+    margin-left: auto;
   }
 
   &__time {
