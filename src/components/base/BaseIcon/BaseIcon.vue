@@ -1,5 +1,11 @@
 <template>
-  <span class="icon">
+  <span
+    class="icon"
+    :class="{
+      'icon--offset-right': offsetRight,
+      'icon--offset-left': offsetLeft
+    }"
+  >
     <component :style="computedStyle" :is="iconName" />
   </span>
 </template>
@@ -9,7 +15,7 @@ export default {
   name: 'BaseIcon',
 
   components: {
-    // IconName: () => import('@/assets/icons/IconName.svg')
+    Bookmark: () => import('@/assets/icons/bookmark.svg')
   },
 
   props: {
@@ -21,6 +27,16 @@ export default {
     fill: {
       type: String,
       required: false
+    },
+
+    offsetRight: {
+      type: Boolean,
+      default: false
+    },
+
+    offsetLeft: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -37,7 +53,7 @@ export default {
     },
 
     iconName() {
-      return `${this.type[0].toUpperCase()}${this.type.slice(1)}`
+      return this.type
     }
   }
 }
@@ -54,9 +70,19 @@ export default {
   justify-content: center;
   align-items: center;
 
+  &--offset-right {
+    margin-right: 3px;
+  }
+
+  &--offset-left {
+    margin-left: 3px;
+  }
+
   & > svg {
     max-width: $icon-width;
     max-height: $icon-height;
+    width: 100%;
+    height: 100%;
     fill: $text-color-main;
   }
 }
