@@ -30,6 +30,7 @@
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-i18n": "^0.6.0",
     "vue-meta": "^2.2.1",
+    "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.10"
   }
 }
