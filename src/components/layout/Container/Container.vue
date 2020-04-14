@@ -12,7 +12,8 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  width: 1080px;
+  max-width: $landscape-width;
+  width: 100%;
   margin: 0 auto;
 }
 </style>

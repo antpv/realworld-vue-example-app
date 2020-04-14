@@ -76,6 +76,10 @@ export default {
     grid-row-gap: 36px;
     grid-column-gap: 24px;
 
+    @media screen and (max-width: $mobile-width) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     #{$root}__item {
     }
   }
