@@ -34,3 +34,7 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+#app { margin: 24px; }
+</style>

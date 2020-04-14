@@ -109,6 +109,14 @@ export default {
   grid-template-columns: calc(70% - 12px) calc(30% - 12px);
   grid-column-gap: 24px;
 
+  @media screen and (max-width: $mobile-width) {
+    grid-template-columns: 100%;
+
+    &__right {
+      margin-top: 24px;
+    }
+  }
+
   &__left {
   }
 
