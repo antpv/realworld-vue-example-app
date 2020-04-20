@@ -41,10 +41,10 @@
 <script>
 import { ADD_BOOKMARK } from '@/store/mutationTypes'
 import { mapMutations } from 'vuex'
-import BaseDivider from '@/components/base/BaseDivider'
-import BaseButton from '@/components/base/BaseButton'
-import BaseIcon from '@/components/base/BaseIcon'
-import Source from '@/components/common/Source'
+import { BaseDivider } from '@/components/base'
+import { BaseButton } from '@/components/base'
+import { BaseIcon } from '@/components/base'
+import { Source } from '@/components/common'
 
 export default {
   name: 'Article',

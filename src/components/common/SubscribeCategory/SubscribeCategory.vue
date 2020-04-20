@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import BaseButton from '@/components/base/BaseButton'
-import BaseInput from '@/components/base/BaseInput'
+import { BaseButton } from '@/components/base'
+import { BaseInput } from '@/components/base'
 
 export default {
   name: 'SubscribeCategory',

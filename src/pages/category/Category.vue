@@ -27,11 +27,11 @@
 <script>
 import { GET_TOP_HEADLINES } from '@/store/actionTypes'
 import { mapActions, mapState } from 'vuex'
-import Container from '@/components/layout/Container'
-import ArticleList from '@/components/common/ArticleList'
-import Bookmarks from '@/components/common/Bookmarks'
-import SubscribeCategory from '@/components/common/SubscribeCategory'
-import BaseDivider from '@/components/base/BaseDivider'
+import { Container } from '@/components/layout'
+import { ArticleList } from '@/components/common'
+import { Bookmarks } from '@/components/common'
+import { SubscribeCategory } from '@/components/common'
+import { BaseDivider } from '@/components/base'
 import routerWatcher from './routerWatcher'
 import categories from '@/constants/categories'
 

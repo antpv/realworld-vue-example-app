@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import Article from '@/components/common/Article'
-import Skeleton from '@/components/common/Skeleton'
+import { Article } from '@/components/common'
+import { Skeleton } from '@/components/common'
 
 export default {
   name: 'ArticleList',
