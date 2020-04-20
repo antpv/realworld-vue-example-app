@@ -15,10 +15,10 @@
 <script>
 import { GET_TOP_HEADLINES } from '@/store/actionTypes'
 import { mapActions, mapState } from 'vuex'
-import Container from '@/components/layout/Container'
-import TheLoader from '@/components/layout/TheLoader'
-import ArticleList from '@/components/common/ArticleList'
-import BaseDivider from '@/components/base/BaseDivider'
+import { Container } from '@/components/layout'
+import { TheLoader } from '@/components/layout'
+import { ArticleList } from '@/components/common'
+import { BaseDivider } from '@/components/base'
 
 export default {
   name: 'Home',

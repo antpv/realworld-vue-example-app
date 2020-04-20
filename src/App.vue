@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Container from '@/components/layout/Container'
-import TheHeader from '@/components/layout/TheHeader'
-import Logo from '@/components/layout/Logo'
-import Categories from '@/components/common/Categories'
+import { Container } from '@/components/layout'
+import { TheHeader } from '@/components/layout'
+import { Logo } from '@/components/layout'
+import { Categories } from '@/components/common'
 import categories from '@/constants/categories'
 
 export default {

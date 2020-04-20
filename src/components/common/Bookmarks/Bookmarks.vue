@@ -40,8 +40,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import Article from '@/components/common/Article'
-import BaseButton from '@/components/base/BaseButton'
+import { Article } from '@/components/common'
+import { BaseButton } from '@/components/base'
 
 export default {
   name: 'Bookmarks',
