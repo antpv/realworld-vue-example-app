@@ -13,6 +13,8 @@
 
 <script>
 export default {
+  name: 'Skeleton',
+
   props: {
     type: {
       type: String,
@@ -56,6 +58,7 @@ export default {
 
   &__image {
     background-color: $gray;
+    border-radius: 3px;
   }
 
   &__title {
@@ -63,15 +66,18 @@ export default {
     width: 70%;
     height: $line-heignt-title;
     margin-bottom: 12px;
+    border-radius: 3px;
   }
 
   &__description {
     margin-bottom: 12px;
+    border-radius: 3px;
 
     &-line {
       background-color: $gray;
       height: $line-heignt-text;
       margin-bottom: 6px;
+      border-radius: 3px;
 
       &:nth-child(1n) {
         width: 90%;

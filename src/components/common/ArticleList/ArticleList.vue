@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import { Article } from '@/components/common'
-import { Skeleton } from '@/components/common'
+import Article from '../Article/Article.vue'
+import Skeleton from '../Skeleton/Skeleton.vue'
 
 export default {
   name: 'ArticleList',

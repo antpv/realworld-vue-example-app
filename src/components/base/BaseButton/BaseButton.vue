@@ -98,7 +98,7 @@ export default {
   outline: 0;
   color: $primary;
   border: 1px solid;
-  border-radius: 4px;
+  border-radius: 3px;
   border-color: $primary;
   background-color: $white;
   padding: 6px 12px;

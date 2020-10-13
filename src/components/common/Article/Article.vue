@@ -41,9 +41,7 @@
 <script>
 import { ADD_BOOKMARK } from '@/store/mutationTypes'
 import { mapMutations } from 'vuex'
-import { BaseDivider } from '@/components/base'
-import { BaseButton } from '@/components/base'
-import { BaseIcon } from '@/components/base'
+import { BaseDivider, BaseButton, BaseIcon } from '@/components/base'
 import { Source } from '@/components/common'
 
 export default {
@@ -189,6 +187,7 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 3px;
   }
 
   &__title {
