@@ -1,6 +1,6 @@
 <template>
-  <div class="source">
-    <span class="source__name">
+  <div class="source-link">
+    <span class="source-link__name">
       {{ name }}
     </span>
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Source',
+  name: 'SourceLink',
 
   props: {
     name: {
@@ -24,12 +24,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.source {
-  display: inline-block;
+.source-link {
+  display: inline;
 
   &__name {
     cursor: pointer;
-    display: inline-block;
+    display: inline;
 
     &:hover {
       text-decoration: underline;

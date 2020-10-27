@@ -1,5 +1,20 @@
 export default [
   {
+    title: 'Breaking news',
+    route: '/category/breaking-news',
+    slug: 'breaking-news'
+  },
+  {
+    title: 'World',
+    route: '/category/world',
+    slug: 'world'
+  },
+  {
+    title: 'Nation',
+    route: '/category/nation',
+    slug: 'nation'
+  },
+  {
     title: 'Business',
     route: '/category/business',
     slug: 'business'
@@ -15,9 +30,9 @@ export default [
     slug: 'entertainment'
   },
   {
-    title: 'Health',
-    route: '/category/health',
-    slug: 'health'
+    title: 'Sports',
+    route: '/category/sports',
+    slug: 'sports'
   },
   {
     title: 'Science',
@@ -25,8 +40,8 @@ export default [
     slug: 'science'
   },
   {
-    title: 'Sports',
-    route: '/category/sports',
-    slug: 'sports'
+    title: 'Health',
+    route: '/category/health',
+    slug: 'health'
   }
 ]

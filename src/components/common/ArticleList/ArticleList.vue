@@ -17,9 +17,9 @@
           :title="article.title"
           :description="article.description"
           :sourceName="article.source.name"
-          :sourceId="article.source.id"
+          :sourceId="article.source.url"
           :publishedAt="article.publishedAt"
-          :urlToImage="article.urlToImage"
+          :image="article.image"
           :type="articleType"
         />
       </div>

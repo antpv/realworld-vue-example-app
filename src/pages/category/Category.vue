@@ -87,7 +87,7 @@ export default {
 
       this.fetching = true
 
-      await this[GET_TOP_HEADLINES]({ category: categorySlug })
+      await this[GET_TOP_HEADLINES]({ topic: categorySlug })
 
       this.fetching = false
     }

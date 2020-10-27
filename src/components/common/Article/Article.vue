@@ -6,12 +6,7 @@
         'article__image-wrapper_no-image': !hasImage
       }"
     >
-      <div
-        v-if="hasImage"
-        class="article__image"
-        :data-url="urlToImage"
-        v-background-image-lazyload
-      />
+      <div v-if="hasImage" class="article__image" :data-url="image" v-background-image-lazyload />
     </div>
     <div class="article__content-wrapper">
       <div class="article__title">
@@ -23,7 +18,7 @@
         {{ description }}
       </div>
       <div class="article__meta">
-        <Source :name="sourceName" :id="sourceId" />
+        <SourceLink :name="sourceName" :id="sourceId" />
         <BaseDivider type="middot" />
         <div class="article__time">
           {{ publishedAt }}
@@ -42,7 +37,7 @@
 import { ADD_BOOKMARK } from '@/store/mutationTypes'
 import { mapMutations } from 'vuex'
 import { BaseDivider, BaseButton, BaseIcon } from '@/components/base'
-import { Source } from '@/components/common'
+import SourceLink from '../SourceLink/SourceLink.vue'
 
 export default {
   name: 'Article',
@@ -77,7 +72,7 @@ export default {
       required: true
     },
 
-    urlToImage: {
+    image: {
       required: false
     },
 
@@ -101,7 +96,7 @@ export default {
     },
 
     hasImage() {
-      return !!this.urlToImage
+      return !!this.image
     }
   },
 
@@ -126,7 +121,7 @@ export default {
     BaseDivider,
     BaseIcon,
     BaseButton,
-    Source
+    SourceLink
   }
 }
 </script>
