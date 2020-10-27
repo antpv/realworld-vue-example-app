@@ -21,7 +21,7 @@
         <SourceLink :name="sourceName" :id="sourceId" />
         <BaseDivider type="middot" />
         <div class="article__time">
-          {{ publishedAt }}
+          {{ formatDate(new Date(publishedAt)) }}
         </div>
         <div v-if="!hideBookmarkButton" class="article__bookmark">
           <BaseButton @click="addBookmark" xs clear transparent>
@@ -37,6 +37,7 @@
 import { ADD_BOOKMARK } from '@/store/mutationTypes'
 import { mapMutations } from 'vuex'
 import { BaseDivider, BaseButton, BaseIcon } from '@/components/base'
+import formatDate from '@/utils/formatDate'
 import SourceLink from '../SourceLink/SourceLink.vue'
 
 export default {
@@ -102,6 +103,8 @@ export default {
 
   methods: {
     ...mapMutations('bookmarks', [ADD_BOOKMARK]),
+
+    formatDate,
 
     addBookmark() {
       const { publishedAt, sourceId, sourceName, description, title, urlToOriginal } = this

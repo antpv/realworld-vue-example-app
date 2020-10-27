@@ -31,10 +31,9 @@ const mutations = {
 }
 
 const actions = {
-  async [GET_TOP_HEADLINES]({ rootState, commit }, params = {}) {
+  async [GET_TOP_HEADLINES]({ commit }, params = {}) {
     try {
-      const { contentLanguage } = rootState
-      const response = await NewsService.getTopHeadlines({ ...params, country: contentLanguage })
+      const response = await NewsService.getTopHeadlines({ ...params, country: 'ua' })
 
       commit(GET_TOP_HEADLINES_SUCCESS, response.data)
     } catch (err) {
